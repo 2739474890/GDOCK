@@ -1,13 +1,13 @@
-echo '修改机器名称'
+echo 'OpemWrt'
 sed -i 's/OpenWrt/G-DOCK/g' package/base-files/files/bin/config_generate
 
-#echo '修改网关地址'
+#echo '192.168.1.1'
 #sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 
-echo '修改时区'
+echo 'UTC'
 sed -i "s/'UTC'/'CST-8'\n        set system.@system[-1].zonename='Asia\/Shanghai'/g" package/base-files/files/bin/config_generate
 
-echo '修改默认主题'
+echo 'Argon'
 sed -i 's/config internal themes/config internal themes\n    option Argon  \"\/luci-static\/argon\"/g' feeds/luci/modules/luci-base/root/etc/config/luci
 
 echo '去除默认bootstrap主题'
@@ -17,7 +17,7 @@ echo '删除旧版argon,链接新版'
 rm -rf ./package/lean/luci-theme-argon
 ln -s ../../../luci-theme-argon ./package/lean/
 
-echo '修改wifi名称'
+echo 'OpemWrt'
 sed -i 's/OpenWrt/G-DOCK/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 
 echo '修改banner'
